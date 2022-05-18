@@ -31,7 +31,7 @@ html{
     background-color: #0d324d;
     color: white;
     position: relative;
-    top: -2.32rem;
+    top: -2.61375rem;
     border: #7f5a83 solid 0.5rem;
     border-radius: 1rem; 
 }
@@ -50,6 +50,7 @@ html{
     border-radius: 0.5rem;
     border: black solid 0.3rem;
 }
+
 .form #button{
 	box-shadow:inset 0px 0px 15px 3px #23395e;
 	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);

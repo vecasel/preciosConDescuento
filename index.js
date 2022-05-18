@@ -56,8 +56,9 @@ function calcularPrecioConDescuento(){
                 descuentoCupon = 70;
                 break;    
             default:
-                alert("El cupón ingresado es incorrecto!");
+                alert("El cupón " + descuentoCupon + " es incorrecto!");
         }
+        
         precioConDescuentoManual(precioOriginal, descuentoAplicar, descuentoCupon);
     }
 }
