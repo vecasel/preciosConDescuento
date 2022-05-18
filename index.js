@@ -1,64 +1,60 @@
- const cupones = [
-     "shein", "vision", "starbucks", "eleven", "reebok"
- ]
+var amount = document.getElementById("cantidad");
+var percentage = document.getElementById("porcentaje"); 
+var codigo = document.getElementById("codigo");
+const form = document.getElementById("form");
 
 
- function calculoDescuento(precioOriginal, descuentoAplicar){
-    precio = parseFloat(precioOriginal);
-    descuento = parseFloat(descuentoAplicar);
-    resultado = (precioOriginal * (100 - descuento)) / 100;
-    document.getElementById("respuesta").innerText = "El precio a pagar por el producto es: " + resultado;
- }
-
-
-function precioConDescuentoManual(precioOriginal, descuentoAplicar, descuentoCupon){
-    if(descuentoCupon == 0){
-        calculoDescuento(precioOriginal, descuentoAplicar);
-    }
-    else{
-        calculoDescuento(precioOriginal, descuentoCupon);
-    }
+function operacion(cantidad, descuento){
+    calculo = cantidad * (100 - descuento) / 100;
+    form.reset();
+    alert("La cantidad a pagar es: " + calculo);
 }
 
 
-function calcularPrecioConDescuento(){
-    precioOriginal = document.getElementById("precio").value;
-    descuentoAplicar = document.getElementById("descuento").value;
-    descuentoCupon =  document.getElementById("cupon").value.toLowerCase();
 
-    if(precioOriginal.length == 0){
-        alert("Es obligatorio poner el precio");
-    }
-    else if(descuentoAplicar.length == 0 && descuentoCupon.length == 0){
-        alert("Debes colocar un descuento manual o un cupón");
-    }
-    else if(descuentoAplicar.length >= 1 && descuentoCupon.length >= 1){
-        alert("No puedes colocar un descuento manual y un cupón");
-    } 
-    else if(descuentoAplicar.length >= 1){    
-        precioConDescuentoManual(precioOriginal, descuentoAplicar, 0);
-    }
-    else {
-        switch(descuentoCupon){
-            case cupones[0]:
-                descuentoCupon = 10;
-                break;
-            case cupones[1]:
-                descuentoCupon = 15;
-                break;
-            case cupones[2]:
-                descuentoCupon = 25;
-                break;
-            case cupones[3]:
-                descuentoCupon = 30;
-                break;
-            case cupones[4]:
-                descuentoCupon = 70;
-                break;    
-            default:
-                alert("El cupón " + descuentoCupon + " es incorrecto!");
-        }
-        
-        precioConDescuentoManual(precioOriginal, descuentoAplicar, descuentoCupon);
+function calcularDescuento(){
+    let coleccion = [
+        "DANIEL",
+        "FERNANDO",
+        "KELLY",
+        "ANDREA",
+        "JEFFERSON",
+    ]
+    switch(true){
+        case amount.value.length < 1:
+            alert("Debes colocar la cantidad");
+            break;
+        case percentage.value.length < 1 && codigo.value.length < 1:
+            alert("Debes colocar el descuento deseado.");
+            break;
+        case percentage.value.length >= 1 && codigo.value.length >=1:
+            alert("Solo puedes poner una forma de descuento.");
+            break;
+        default:
+            if(percentage.value.length >= 1){
+                operacion(parseInt(amount.value), parseInt(percentage.value));
+                form.reset();
+            }
+            else{
+                switch(true){
+                    case codigo.value.toUpperCase() == coleccion[0]:
+                        operacion(parseInt(amount.value), 10);
+                        break;
+                    case codigo.value.toUpperCase() == coleccion[1]:
+                        operacion(parseInt(amount.value), 20);
+                        break;
+                    case codigo.value.toUpperCase() == coleccion[2]:
+                        operacion(parseInt(amount.value), 30);
+                        break;
+                    case codigo.value.toUpperCase() == coleccion[3]:
+                        operacion(parseInt(amount.value), 40);
+                        break;
+                    case codigo.value.toUpperCase() == coleccion[4]:
+                        operacion(parseInt(amount.value), 50);
+                        break;
+                    default:
+                        alert("El código no está en la base de datos");
+                }
+            } 
     }
 }

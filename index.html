@@ -6,31 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precios con Descuento</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comforter&family=Lato:wght@900&family=Roboto+Flex:opsz@8..144&family=Source+Code+Pro:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="main__container">
-        <section class="main__container__section">
-            <h1>Precios con Descuento</h1>
-            <form class="form">
-                <label for="precio" class="input1">
-                    Escribe el precio original del producto.
-                    <input type="number" name="precio" id="precio">
-                </label>
-                <label for="descuento" class="input2">
-                    Escribe el descuento que deseas aplicar.
-                    <input type="number" name="descuento" id="descuento">
-                </label>
-                <label for="cupon" class="input3">
-                    Si tienes un cupón de descuento, por favor escríbelo.
-                    <input list="text" name="miCupon" id="cupon">
-                </label>
-                <button type="button" id="button" onclick="calcularPrecioConDescuento()">Calcular</button>
-            </form>
-            <div class="respuesta__container">
-                <p id="respuesta"></p>
-            </div>
+    <header class="headerContainer">
+        <h1 class="headerContainer__title">Programa de Descuentos</h1>
+    </header>
+    <main class="mainContainer">
+        <section class="mainContainer__description">
+            <p class="description__p">Con este programa, podrás calcular los descuentos con el precio del producto y el porcentaje que desees aplicar.
+            </p>
         </section>
+        <form class="mainContainer__form" id="form">
+            <label for="" class="form__cantidad">Ingresa la cantidad</label>
+            <input type="number" placeholder="Cantidad" id="cantidad">
+            <label for="" class="form__descuento">Ingresa el descuento</label>
+            <input type="number" placeholder="%" id="porcentaje">
+            <label for=""numberss="form__codigo">Ingresa un código de descuento, si lo tienes</label>
+            <input type="text" placeholder="Código de Descuento" id="codigo">
+            <button type="button" id="button" onclick="calcularDescuento()">Enviar Datos</button>
+        </form>
     </main>
     <script src="index.js"></script>
-</body>
 </html>
